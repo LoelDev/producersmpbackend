@@ -14,12 +14,14 @@ import { Profile } from '../Entities/profile.entity';
 export class ProfileController {
   constructor(private readonly profileService: ProfileService) {}
 
+  //Post REQUEST
   @Post()
   async creatProfile(@Res() response, @Body() profile: Profile) {
     const newProfile = await this.profileService.createProfile(profile);
     return response.status(HttpStatus.CREATED).json({ newProfile });
   }
 
+  //Get REQUEST
   @Get('/:id')
   async findById(@Res() response, @Param('id') id) {
     const profile = await this.profileService.findOne(id);
