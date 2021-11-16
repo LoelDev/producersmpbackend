@@ -12,12 +12,12 @@ import { Profile } from './Profile/profile/Entities/profile.entity';
 @Module({
   imports: [
     TypeOrmModule.forRoot({
-      type: 'mysql',
+      type: 'postgres',
       host: 'localhost',
-      port: 3306,
-      username: 'root',
+      port: 5432,
+      username: 'postgres',
       password: '123456',
-      database: 'producersprueba',
+      database: 'producersmp',
       entities: [User, CPost, Profile],
       synchronize: true,
       dropSchema: false,
