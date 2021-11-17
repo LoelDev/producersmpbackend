@@ -8,6 +8,8 @@ import { CPost } from './Publishing & Social Interaction/commonPost/Entities/pos
 import { PostModule } from './Publishing & Social Interaction/commonPost/Modules/post.module';
 import { ProfileModule } from './Profile/profile/Modules/profile.module';
 import { Profile } from './Profile/profile/Entities/profile.entity';
+import { ProductionModule } from './Publishing & Social Interaction/production/Modules/production.module';
+import { Production } from './Publishing & Social Interaction/production/Entities/production.entity';
 
 @Module({
   imports: [
@@ -18,13 +20,14 @@ import { Profile } from './Profile/profile/Entities/profile.entity';
       username: 'postgres',
       password: '123456',
       database: 'producersmp',
-      entities: [User, CPost, Profile],
+      entities: [User, CPost, Profile, Production],
       synchronize: true,
       dropSchema: false,
     }),
     UserModule,
     PostModule,
     ProfileModule,
+    ProductionModule,
   ],
   controllers: [AppController],
   providers: [AppService],
