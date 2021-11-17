@@ -14,7 +14,13 @@ import { Production } from './Publishing & Social Interaction/production/Entitie
 @Module({
   imports: [
     TypeOrmModule.forRoot({
+      //url: process.env.DATABASE_URL,
       type: 'postgres',
+      //extra: {
+      //ssl: {
+      //rejectUnauthorized: false,
+      //},
+      //},
       host: 'localhost',
       port: 5432,
       username: 'postgres',
