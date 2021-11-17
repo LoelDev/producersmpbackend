@@ -1,10 +1,12 @@
 import {
   Body,
   Controller,
+  Delete,
   Get,
   HttpStatus,
   Param,
   Post,
+  Put,
   Res,
 } from '@nestjs/common';
 import { UserService } from '../Services/user.service';
@@ -32,5 +34,16 @@ export class UserController {
   async createUser(@Res() response, @Body() user: User) {
     const newUser = await this.userService.createUser(user);
     return response.status(HttpStatus.CREATED).json({ newUser });
+  }
+
+  @Put('/:id')
+  async updateById(@Res() response, @Body() user: User, @Param('id') id) {
+    const updateResult = await this.userService.updateUser(id, user);
+    return response.status(HttpStatus.CREATED).json({ updateResult });
+  }
+
+  @Delete('/:id')
+  removeProfile(@Param('id') id: string) {
+    return this.userService.removeUser(id);
   }
 }

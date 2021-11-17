@@ -1,10 +1,12 @@
 import {
   Body,
   Controller,
+  Delete,
   Get,
   HttpStatus,
   Param,
   Post,
+  Put,
   Res,
 } from '@nestjs/common';
 import { PostService } from '../Services/post.service';
@@ -32,5 +34,16 @@ export class PostController {
   async createPost(@Res() response, @Body() post: CPost) {
     const newPost = await this.postService.createPost(post);
     return response.status(HttpStatus.CREATED).json({ newPost });
+  }
+
+  @Put('/:id')
+  async updateById(@Res() response, @Body() post: CPost, @Param('id') id) {
+    const updateResult = await this.postService.updatePost(id, post);
+    return response.status(HttpStatus.CREATED).json({ updateResult });
+  }
+
+  @Delete('/:id')
+  removePost(@Param('id') id: string) {
+    return this.postService.removePost(id);
   }
 }

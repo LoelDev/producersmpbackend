@@ -1,10 +1,12 @@
 import {
   Body,
   Controller,
+  Delete,
   Get,
   HttpStatus,
   Param,
   Post,
+  Put,
   Res,
 } from '@nestjs/common';
 import { ProfileService } from '../Services/profile.service';
@@ -32,5 +34,16 @@ export class ProfileController {
   async creatProfile(@Res() response, @Body() profile: Profile) {
     const newProfile = await this.profileService.createProfile(profile);
     return response.status(HttpStatus.CREATED).json({ newProfile });
+  }
+
+  @Put('/:id')
+  async updateById(@Res() response, @Body() profile: Profile, @Param('id') id) {
+    const updateResult = await this.profileService.updateProfile(id, profile);
+    return response.status(HttpStatus.CREATED).json({ updateResult });
+  }
+
+  @Delete('/:id')
+  removeProfile(@Param('id') id: string) {
+    return this.profileService.removeProfile(id);
   }
 }
