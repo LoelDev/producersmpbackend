@@ -1,18 +1,34 @@
 import {
   Body,
   Controller,
+  Delete,
   Get,
   HttpStatus,
   Param,
   Post,
+  Put,
   Res,
 } from '@nestjs/common';
 import { PostService } from '../Services/post.service';
 import { CPost } from '../Entities/post.entity';
+import { ApiTags } from '@nestjs/swagger';
 
+@ApiTags('common_posts')
 @Controller('posts')
 export class PostController {
   constructor(private readonly postService: PostService) {}
+
+  @Get('/:id')
+  async findById(@Res() response, @Param('id') id) {
+    const post = await this.postService.findOne(id);
+    return response.status(HttpStatus.OK).json({ post });
+  }
+
+  @Get()
+  async findAll(@Res() response) {
+    const posts = await this.postService.findAll();
+    return response.status(HttpStatus.OK).json({ posts });
+  }
 
   @Post()
   async createPost(@Res() response, @Body() post: CPost) {
@@ -20,9 +36,14 @@ export class PostController {
     return response.status(HttpStatus.CREATED).json({ newPost });
   }
 
-  @Get('/:id')
-  async findById(@Res() response, @Param('id') id) {
-    const post = await this.postService.findOne(id);
-    return response.status(HttpStatus.OK).json({ post });
+  @Put('/:id')
+  async updateById(@Res() response, @Body() post: CPost, @Param('id') id) {
+    const updateResult = await this.postService.updatePost(id, post);
+    return response.status(HttpStatus.CREATED).json({ updateResult });
+  }
+
+  @Delete('/:id')
+  removePost(@Param('id') id: string) {
+    return this.postService.removePost(id);
   }
 }
