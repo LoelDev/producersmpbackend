@@ -2,31 +2,48 @@ import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { UserModule } from './Security/user/Modules/user.module';
-import { User } from './Security/user/Entities/user.entity';
-import { CPost } from './Publishing & Social Interaction/commonPost/Entities/post.entity';
-import { PostModule } from './Publishing & Social Interaction/commonPost/Modules/post.module';
-import { ProfileModule } from './Profile/profile/Modules/profile.module';
-import { Profile } from './Profile/profile/Entities/profile.entity';
+import { UserModule } from './Security/modules/user.module';
+import { User } from './Security/domain/entities/user.entity';
+import { CommonPost } from './Publishing/common-post/domain/entities/post.entity';
+import { PostModule } from './Publishing/common-post/modules/post.module';
+import { ProfileModule } from './Profile/modules/profile.module';
+import { Profile } from './Profile/domain/entities/profile.entity';
+import { ProductionModule } from './Publishing/production/modules/production.module';
+import { Production } from './Publishing/production/domain/entities/production.entity';
+import { MusicSampleModule } from './Publishing/music-sample/modules/music-sample.module';
+import { MusicSample } from './Publishing/music-sample/domain/entities/music-sample.entity';
+import { PlansService } from './Subscription/domain/services/plans.service';
+import { PlansController } from './Subscription/api/controllers/plans.controller';
+import { PlansModule } from './Subscription/modules/plans.module';
 
 @Module({
   imports: [
     TypeOrmModule.forRoot({
+      url: process.env.DATABASE_URL,
       type: 'postgres',
-      host: 'localhost',
+      extra: {
+        ssl: {
+          rejectUnauthorized: false,
+        },
+      },
+      host: 'ec2-3-208-157-78.compute-1.amazonaws.com',
       port: 5432,
-      username: 'postgres',
-      password: '123456',
-      database: 'producersmp',
-      entities: [User, CPost, Profile],
+      username: 'rtwkmxscuqcawk',
+      password:
+        '975ad17dfc88bf6a3eb878472c601e2d68344dc3df404b3f1aba4d700f818b6d',
+      database: 'd566t52c0dch7r',
+      entities: [User, CommonPost, Profile, Production, MusicSample],
       synchronize: true,
       dropSchema: false,
     }),
     UserModule,
     PostModule,
     ProfileModule,
+    ProductionModule,
+    MusicSampleModule,
+    PlansModule,
   ],
-  controllers: [AppController],
-  providers: [AppService],
+  controllers: [AppController, PlansController],
+  providers: [AppService, PlansService],
 })
 export class AppModule {}
