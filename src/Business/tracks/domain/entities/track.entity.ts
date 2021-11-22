@@ -1,15 +1,15 @@
 import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
 
-@Entity('plans')
-export class Plan {
+@Entity('tracks')
+export class Track {
   @PrimaryGeneratedColumn()
   id: number;
   @Column()
+  musicSampleId: number;
+  @Column()
   name: string;
   @Column()
-  description: string;
+  isFinished: boolean;
   @Column()
-  price: string;
-  @Column()
-  isAvailable: boolean;
+  duration: string;
 }

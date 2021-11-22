@@ -1,4 +1,4 @@
-feature: CPostServiceTest
+Feature: CPostServiceTest
 
 	As a developer 
 	I want to get a list of the posts through an API
@@ -15,6 +15,6 @@ Scenario: Retrieve Post
 |    1     |
 
 Then a Response with Status 200 is recieved
-and a list of Post Resources is included in the response body
+And a list of Post Resources is included in the response body
 |    id    |   user_id   |   description   |  date_of_registry  |
 |    1     |      1      |    AAAAAAAAAA   |    2021-06-11      |

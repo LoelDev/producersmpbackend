@@ -5,21 +5,21 @@ export class Profile {
   @PrimaryGeneratedColumn()
   id: number;
   @Column()
-  user_id: number;
+  userId: number;
   @Column()
-  first_name: string;
+  firstName: string;
   @Column()
-  last_name: string;
+  lastName: string;
   @Column()
-  date_of_birth: string;
+  dateOfBirth: string;
   @Column()
   gender: string;
   @Column()
-  date_of_registry: string;
+  dateOfRegistry: string;
   @Column()
   address: string;
   @Column()
-  user_type: string;
+  userType: string;
   @Column()
-  image_url: string;
+  imageUrl: string;
 }

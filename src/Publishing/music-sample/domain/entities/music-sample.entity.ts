@@ -5,13 +5,13 @@ export class MusicSample {
   @PrimaryGeneratedColumn()
   id: number;
   @Column()
-  user_id: number; //userId
+  userId: number; //userId
   @Column({ default: null })
-  song_name: string;
+  songName: string;
   @Column({ default: null })
   description: string;
   @Column({ default: null })
-  date_of_registry: string;
+  dateOfRegistry: string;
   @Column({ default: null })
-  music_url: string;
+  musicUrl: string;
 }

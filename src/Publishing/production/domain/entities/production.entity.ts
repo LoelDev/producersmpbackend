@@ -5,11 +5,11 @@ export class Production {
   @PrimaryGeneratedColumn()
   id: number;
   @Column()
-  user_id: number;
+  userId: number;
   @Column({ default: null })
   title: string;
   @Column({ default: null })
-  video_url: string;
+  videoUrl: string;
   @Column({ default: null })
-  date_of_registry: string;
+  dateOfRegistry: string;
 }
