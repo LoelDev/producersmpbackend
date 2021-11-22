@@ -5,13 +5,13 @@ export class CommonPost {
   @PrimaryGeneratedColumn()
   id: number;
   @Column()
-  user_id: number;
+  userid: number;
   @Column({ default: null })
   title: string;
   @Column({ default: null })
-  image_url: string;
+  imageUrl: string;
   @Column({ default: null })
   description: string;
   @Column({ default: null })
-  date_of_registry: string;
+  dateOfRegistry: string;
 }

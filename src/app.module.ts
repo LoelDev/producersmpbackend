@@ -12,9 +12,8 @@ import { ProductionModule } from './Publishing/production/modules/production.mod
 import { Production } from './Publishing/production/domain/entities/production.entity';
 import { MusicSampleModule } from './Publishing/music-sample/modules/music-sample.module';
 import { MusicSample } from './Publishing/music-sample/domain/entities/music-sample.entity';
-import { PlansService } from './Subscription/domain/services/plans.service';
-import { PlansController } from './Subscription/api/controllers/plans.controller';
 import { PlansModule } from './Subscription/modules/plans.module';
+import { Plan } from './Subscription/domain/entities/plan.entity';
 
 @Module({
   imports: [
@@ -32,7 +31,7 @@ import { PlansModule } from './Subscription/modules/plans.module';
       password:
         '975ad17dfc88bf6a3eb878472c601e2d68344dc3df404b3f1aba4d700f818b6d',
       database: 'd566t52c0dch7r',
-      entities: [User, CommonPost, Profile, Production, MusicSample],
+      entities: [User, CommonPost, Profile, Production, MusicSample, Plan],
       synchronize: true,
       dropSchema: false,
     }),
@@ -43,7 +42,7 @@ import { PlansModule } from './Subscription/modules/plans.module';
     MusicSampleModule,
     PlansModule,
   ],
-  controllers: [AppController, PlansController],
-  providers: [AppService, PlansService],
+  controllers: [AppController],
+  providers: [AppService],
 })
 export class AppModule {}
