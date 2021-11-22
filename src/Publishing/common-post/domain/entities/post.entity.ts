@@ -4,14 +4,14 @@ import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
 export class CommonPost {
   @PrimaryGeneratedColumn()
   id: number;
+  @Column({ name: 'user_id' })
+  userId: number;
   @Column()
-  userid: number;
-  @Column({ default: null })
   title: string;
-  @Column({ default: null })
+  @Column({ name: 'image_url' })
   imageUrl: string;
-  @Column({ default: null })
+  @Column()
   description: string;
-  @Column({ default: null })
+  @Column({ name: 'date_of_registry' })
   dateOfRegistry: string;
 }

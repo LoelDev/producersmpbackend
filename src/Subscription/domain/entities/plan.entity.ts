@@ -10,6 +10,6 @@ export class Plan {
   description: string;
   @Column()
   price: string;
-  @Column()
+  @Column({ name: 'is_available' })
   isAvailable: boolean;
 }

@@ -4,8 +4,8 @@ import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
 export class Library {
   @PrimaryGeneratedColumn()
   id: number;
-  @Column()
+  @Column({ name: 'instrument_id' })
   instrumentId: number;
-  @Column()
+  @Column({ name: 'library_name' })
   libraryName: string;
 }

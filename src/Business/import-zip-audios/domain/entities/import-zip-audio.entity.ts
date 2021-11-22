@@ -4,12 +4,12 @@ import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
 export class ImportZipAudio {
   @PrimaryGeneratedColumn()
   id: number;
-  @Column()
+  @Column({ name: 'track_id' })
   trackId: number;
-  @Column()
+  @Column({ name: 'name_zip' })
   nameZip: string;
-  @Column()
+  @Column({ name: 'date_of_download' })
   dateOfDownload: string;
-  @Column()
+  @Column({ name: 'is_final_version' })
   isFinalVersion: boolean;
 }

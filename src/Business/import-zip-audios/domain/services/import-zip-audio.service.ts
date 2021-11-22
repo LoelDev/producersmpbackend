@@ -2,9 +2,10 @@ import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { DeleteResult, Repository } from 'typeorm';
 import { ImportZipAudio } from '../entities/import-zip-audio.entity';
+import { ImportZipAudiosInterfaceService } from '../../services/import-zip-audios-interface.service';
 
 @Injectable()
-export class ImportZipAudioService {
+export class ImportZipAudioService implements ImportZipAudiosInterfaceService {
   constructor(
     @InjectRepository(ImportZipAudio)
     private importZipAudioRepository: Repository<ImportZipAudio>,

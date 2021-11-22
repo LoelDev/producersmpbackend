@@ -2,9 +2,10 @@ import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { DeleteResult, Repository } from 'typeorm';
 import { Library } from '../entities/library.entity';
+import { LibrariesInterfaceService } from '../../services/libraries-interface.service';
 
 @Injectable()
-export class LibraryService {
+export class LibraryService implements LibrariesInterfaceService {
   constructor(
     @InjectRepository(Library)
     private libraryRepository: Repository<Library>,

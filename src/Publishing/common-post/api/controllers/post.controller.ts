@@ -13,7 +13,7 @@ import { PostService } from '../../domain/services/post.service';
 import { CommonPost } from '../../domain/entities/post.entity';
 import { ApiTags } from '@nestjs/swagger';
 
-@ApiTags('common_posts')
+@ApiTags('common-posts')
 @Controller('posts')
 export class PostController {
   constructor(private readonly postService: PostService) {}

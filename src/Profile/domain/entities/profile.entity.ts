@@ -4,22 +4,22 @@ import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
 export class Profile {
   @PrimaryGeneratedColumn()
   id: number;
-  @Column()
+  @Column({ name: 'user_id' })
   userId: number;
-  @Column()
+  @Column({ name: 'first_name' })
   firstName: string;
-  @Column()
+  @Column({ name: 'last_name' })
   lastName: string;
-  @Column()
+  @Column({ name: 'date_of_birth' })
   dateOfBirth: string;
   @Column()
   gender: string;
-  @Column()
+  @Column({ name: 'date_of_registry' })
   dateOfRegistry: string;
   @Column()
   address: string;
-  @Column()
+  @Column({ name: 'user_type' })
   userType: string;
-  @Column()
+  @Column({ name: 'image_url' })
   imageUrl: string;
 }

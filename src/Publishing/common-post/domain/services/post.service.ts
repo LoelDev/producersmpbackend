@@ -2,9 +2,10 @@ import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { CommonPost } from '../entities/post.entity';
 import { DeleteResult, Repository } from 'typeorm';
+import { PostsInterfaceService } from '../../services/posts-interface.service';
 
 @Injectable()
-export class PostService {
+export class PostService implements PostsInterfaceService {
   constructor(
     @InjectRepository(CommonPost)
     private postRepository: Repository<CommonPost>,
