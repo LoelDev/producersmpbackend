@@ -18,6 +18,10 @@ import { Track } from './Business/tracks/domain/entities/track.entity';
 import { TrackModule } from './Business/tracks/modules/track.module';
 import { Instrument } from './Business/instruments/domain/entities/instrument.entity';
 import { InstrumentModule } from './Business/instruments/modules/instrument.module';
+import { ImportZipAudioModule } from './Business/import-zip-audios/modules/import-zip-audio.module';
+import { ImportZipAudio } from './Business/import-zip-audios/domain/entities/import-zip-audio.entity';
+import { Library } from './Business/libraries/domain/entities/library.entity';
+import { LibraryModule } from './Business/libraries/modules/library.module';
 
 @Module({
   imports: [
@@ -44,6 +48,8 @@ import { InstrumentModule } from './Business/instruments/modules/instrument.modu
         Plan,
         Track,
         Instrument,
+        ImportZipAudio,
+        Library,
       ],
       synchronize: true,
       dropSchema: false,
@@ -56,6 +62,8 @@ import { InstrumentModule } from './Business/instruments/modules/instrument.modu
     PlansModule,
     TrackModule,
     InstrumentModule,
+    ImportZipAudioModule,
+    LibraryModule,
   ],
   controllers: [AppController],
   providers: [AppService],
