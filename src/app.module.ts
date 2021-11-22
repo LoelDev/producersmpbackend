@@ -14,6 +14,8 @@ import { MusicSampleModule } from './Publishing/music-sample/modules/music-sampl
 import { MusicSample } from './Publishing/music-sample/domain/entities/music-sample.entity';
 import { PlansModule } from './Subscription/modules/plans.module';
 import { Plan } from './Subscription/domain/entities/plan.entity';
+import { Track } from './Business/tracks/domain/entities/track.entity';
+import { TrackModule } from './Business/tracks/modules/track.module';
 
 @Module({
   imports: [
@@ -31,7 +33,15 @@ import { Plan } from './Subscription/domain/entities/plan.entity';
       password:
         '975ad17dfc88bf6a3eb878472c601e2d68344dc3df404b3f1aba4d700f818b6d',
       database: 'd566t52c0dch7r',
-      entities: [User, CommonPost, Profile, Production, MusicSample, Plan],
+      entities: [
+        User,
+        CommonPost,
+        Profile,
+        Production,
+        MusicSample,
+        Plan,
+        Track,
+      ],
       synchronize: true,
       dropSchema: false,
     }),
@@ -41,6 +51,7 @@ import { Plan } from './Subscription/domain/entities/plan.entity';
     ProductionModule,
     MusicSampleModule,
     PlansModule,
+    TrackModule,
   ],
   controllers: [AppController],
   providers: [AppService],
