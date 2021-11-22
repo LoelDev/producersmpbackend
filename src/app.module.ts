@@ -16,6 +16,8 @@ import { PlansModule } from './Subscription/modules/plans.module';
 import { Plan } from './Subscription/domain/entities/plan.entity';
 import { Track } from './Business/tracks/domain/entities/track.entity';
 import { TrackModule } from './Business/tracks/modules/track.module';
+import { Instrument } from './Business/instruments/domain/entities/instrument.entity';
+import { InstrumentModule } from './Business/instruments/modules/instrument.module';
 
 @Module({
   imports: [
@@ -41,6 +43,7 @@ import { TrackModule } from './Business/tracks/modules/track.module';
         MusicSample,
         Plan,
         Track,
+        Instrument,
       ],
       synchronize: true,
       dropSchema: false,
@@ -52,6 +55,7 @@ import { TrackModule } from './Business/tracks/modules/track.module';
     MusicSampleModule,
     PlansModule,
     TrackModule,
+    InstrumentModule,
   ],
   controllers: [AppController],
   providers: [AppService],
