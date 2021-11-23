@@ -4,14 +4,14 @@ import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
 export class MusicSample {
   @PrimaryGeneratedColumn()
   id: number;
-  @Column()
-  userId: number; //userId
-  @Column({ default: null })
+  @Column({ name: 'user_id' })
+  userId: number;
+  @Column({ name: 'song_name' })
   songName: string;
-  @Column({ default: null })
+  @Column()
   description: string;
-  @Column({ default: null })
+  @Column({ name: 'date_of_registry' })
   dateOfRegistry: string;
-  @Column({ default: null })
+  @Column({ name: 'music_url' })
   musicUrl: string;
 }

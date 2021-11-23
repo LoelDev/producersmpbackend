@@ -2,9 +2,10 @@ import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { MusicSample } from '../entities/music-sample.entity';
 import { DeleteResult, Repository } from 'typeorm';
+import { MusicSamplesInterfaceServices } from '../../services/music-samples-interface.services';
 
 @Injectable()
-export class MusicSampleService {
+export class MusicSampleService implements MusicSamplesInterfaceServices {
   constructor(
     @InjectRepository(MusicSample)
     private musicSampleRepository: Repository<MusicSample>,

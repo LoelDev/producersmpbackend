@@ -4,11 +4,11 @@ import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
 export class Track {
   @PrimaryGeneratedColumn()
   id: number;
-  @Column()
+  @Column({ name: 'music_sample_id' })
   musicSampleId: number;
   @Column()
   name: string;
-  @Column()
+  @Column({ name: 'is_finished' })
   isFinished: boolean;
   @Column()
   duration: string;

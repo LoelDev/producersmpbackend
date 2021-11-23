@@ -6,10 +6,10 @@ export class Production {
   id: number;
   @Column()
   userId: number;
-  @Column({ default: null })
+  @Column()
   title: string;
-  @Column({ default: null })
+  @Column({ name: 'video_url' })
   videoUrl: string;
-  @Column({ default: null })
+  @Column({ name: 'date_of_registry' })
   dateOfRegistry: string;
 }

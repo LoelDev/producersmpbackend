@@ -2,9 +2,10 @@ import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Production } from '../entities/production.entity';
 import { DeleteResult, Repository } from 'typeorm';
+import { ProductionsInterfaceService } from '../../services/productions-interface.service';
 
 @Injectable()
-export class ProductionService {
+export class ProductionService implements ProductionsInterfaceService {
   constructor(
     @InjectRepository(Production)
     private productionRepository: Repository<Production>,

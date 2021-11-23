@@ -2,9 +2,10 @@ import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Track } from '../entities/track.entity';
 import { DeleteResult, Repository } from 'typeorm';
+import { TracksInterfaceService } from '../../services/tracks-interface.service';
 
 @Injectable()
-export class TrackService {
+export class TrackService implements TracksInterfaceService {
   constructor(
     @InjectRepository(Track)
     private trackRepository: Repository<Track>,
