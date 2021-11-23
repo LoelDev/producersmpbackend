@@ -33,12 +33,12 @@ import { LibraryModule } from './Business/libraries/modules/library.module';
           rejectUnauthorized: false,
         },
       },
-      host: 'ec2-3-208-157-78.compute-1.amazonaws.com',
+      host: 'ec2-3-220-156-4.compute-1.amazonaws.com',
       port: 5432,
-      username: 'rtwkmxscuqcawk',
+      username: 'esgcacailrfsix',
       password:
-        '975ad17dfc88bf6a3eb878472c601e2d68344dc3df404b3f1aba4d700f818b6d',
-      database: 'd566t52c0dch7r',
+        '6d7a00abd042f9f724a5999b252d7de61cb73ce9a73054b699be4192ebc2a8eb',
+      database: 'd2rimnveg7mnsj',
       entities: [
         User,
         CommonPost,

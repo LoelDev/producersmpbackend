@@ -4,6 +4,6 @@ import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
 export class Instrument {
   @PrimaryGeneratedColumn()
   id: number;
-  @Column({ name: 'name_instrument' })
+  @Column({ name: 'name_instrument', default: null })
   nameInstrument: string;
 }

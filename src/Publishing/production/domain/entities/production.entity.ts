@@ -4,12 +4,12 @@ import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
 export class Production {
   @PrimaryGeneratedColumn()
   id: number;
-  @Column()
+  @Column({ name: 'user_id', default: null })
   userId: number;
   @Column()
   title: string;
-  @Column({ name: 'video_url' })
+  @Column({ name: 'video_url', default: null })
   videoUrl: string;
-  @Column({ name: 'date_of_registry' })
+  @Column({ name: 'date_of_registry', default: null })
   dateOfRegistry: string;
 }
