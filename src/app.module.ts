@@ -53,6 +53,7 @@ import { LibraryModule } from './Business/libraries/modules/library.module';
       ],
       synchronize: true,
       dropSchema: false,
+      autoLoadEntities: true,
     }),
     UserModule,
     PostModule,

@@ -10,6 +10,6 @@ export class ImportZipAudio {
   nameZip: string;
   @Column({ name: 'date_of_download', default: null })
   dateOfDownload: string;
-  @Column({ name: 'is_final_version', default: null })
+  @Column({ name: 'is_final_version', default: false })
   isFinalVersion: boolean;
 }
