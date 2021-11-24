@@ -8,6 +8,8 @@ import {
   Post,
   Put,
   Res,
+  UsePipes,
+  ValidationPipe,
 } from '@nestjs/common';
 import { UserService } from '../../domain/services/user.service';
 import { User } from '../../domain/entities/user.entity';
@@ -31,6 +33,7 @@ export class UserController {
   }
 
   @Post()
+  @UsePipes(new ValidationPipe())
   async createUser(@Res() response, @Body() user: User) {
     const newUser = await this.userService.createUser(user);
     return response.status(HttpStatus.CREATED).json({ newUser });
