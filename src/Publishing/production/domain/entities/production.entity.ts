@@ -1,4 +1,5 @@
 import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import { IsDefined, IsString } from 'class-validator';
 
 @Entity('productions')
 export class Production {
@@ -6,6 +7,8 @@ export class Production {
   id: number;
   @Column({ name: 'user_id', default: null })
   userId: number;
+  @IsString()
+  @IsDefined()
   @Column()
   title: string;
   @Column({ name: 'video_url', default: null })

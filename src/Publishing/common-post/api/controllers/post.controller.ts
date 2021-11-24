@@ -8,6 +8,8 @@ import {
   Post,
   Put,
   Res,
+  UsePipes,
+  ValidationPipe,
 } from '@nestjs/common';
 import { PostService } from '../../domain/services/post.service';
 import { CommonPost } from '../../domain/entities/post.entity';
@@ -31,6 +33,7 @@ export class PostController {
   }
 
   @Post()
+  @UsePipes(new ValidationPipe())
   async createPost(@Res() response, @Body() post: CommonPost) {
     const newPost = await this.postService.createPost(post);
     return response.status(HttpStatus.CREATED).json({ newPost });
